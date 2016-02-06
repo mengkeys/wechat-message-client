@@ -1,0 +1,29 @@
+{
+  "name": "wechat-message-client",
+  "version": "0.0.1",
+  "description": "wechat client message send module",
+  "main": "index.js",
+  "keywords": [
+    "wechat",
+    "node-wechat",
+    "weixin",
+    "node-weixin",
+    "wechat-message",
+    "weixin-message"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengkeys/wechat-message-client.git",
+    "homepage": "https://github.com/mengkeys/wechat-message-client",
+    "bugs": "https://github.com/mengkeys/wechat-message-client/issues"
+  },
+  "author": {
+    "name": "mengkeys",
+    "email": "mengkeys@hotmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "urllib": "^2.7.1",
+    "xml2js": "^0.4.16"
+  }
+}
