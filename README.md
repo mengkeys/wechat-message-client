@@ -1,18 +1,23 @@
-# wechat-message-client
-wechat client message send module
+# wmc(wechat-message-client)
 
-#### Install
+### What is it?
+you can send message to your wechat message reply server.
+
+### How to use it?
+
+##### Install
 
 ```javascript
 npm i wechat-message-client --save-dev
-
 ```
 
-#### Token Verify
+##### Token Verify
 
 ```javascript
+// the token from your setting.
+var token = "YOUR_TOKEN";
 
-var token = "TOKEN";
+// the remote url address.
 var remote = {
     protocol:'http',
     slashes:true,
@@ -20,10 +25,13 @@ var remote = {
     port:3080
 };
 
+// require module.
 var wmc = require('wechat-message-client');
 
+// instance
 var client = wmc(token, remote);
 
+// token verify
 client.checkSignature(function(err, data, res){
     if(err) throw err;
     console.log(data.toString());
@@ -34,9 +42,10 @@ client.checkSignature(function(err, data, res){
 #### Send Message
 
 ```javascript
+// xml module
 var xml = require('xml');
 
-// text message 
+// message template.
 var textTpl = {
     "xml":[
       {"ToUserName":{"_cdata":"aaaaaaaa"}},
@@ -48,6 +57,7 @@ var textTpl = {
     ]
 };
 
+// post message [callback]
 client.sendMessage({
     method:"POST",
     data:xml(textTpl,{ index: true })
@@ -57,25 +67,43 @@ client.sendMessage({
    console.log(res);
 });
 ```
+
 ### so easy to access your wechat reply server
 
-### Example
+#### Example
 
-install, into example directory and install dependence.
+install wmc module.
+
 ```
-cd example && npm i
+npm install wechat-message-client
 ```
 
-start server
+change to example directory.
+ 
+```
+cd example
+```
+
+install dependence.
+
+```
+npm install
+```
+
+start example wechat message reply server.
+
 ```
 node server.js
 ```
 
-http(get) verify token 
+hava a token verify request.
+
 ```
  node signature.js
 ```
-http(post) post message 
+
+post a message to server. 
+
 ```
  node message.js
 ```
